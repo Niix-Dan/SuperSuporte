@@ -1,0 +1,17 @@
+name: SuperSuporte
+main: me.daniel.SuperSuporte.SuperSuporte
+version: 1.4
+description: Plugin de suporte para servidores de minecraft
+author: Daniel
+commands:
+  duvida:
+    description: Envie uma duvida a equipe de suporte do servidor!
+  responder:
+    description: Responda a duvida de algum jogador!
+  duvidas:
+    description: Veja as duvidas pendentes dos jogadores
+  supersuporte:
+    description: Comando principal SuperSuporte
+permissions:
+  supersuporte.staff:
+    default: op

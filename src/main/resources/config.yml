@@ -1,0 +1,115 @@
+#   _____                       _____                        _           #
+#  / ____|                     / ____|                      | |          #
+# | (___  _   _ _ __   ___ _ _| (___  _   _ _ __   ___  _ __| |_ ___     #
+#  \___ \| | | | '_ \ / _ \ '__\___ \| | | | '_ \ / _ \| '__| __/ _ \    #
+#  ____) | |_| | |_) |  __/ |  ____) | |_| | |_) | (_) | |  | ||  __/    #
+# |_____/ \__,_| .__/ \___|_| |_____/ \__,_| .__/ \___/|_|   \__\___|    #
+#              | |                         | |                           #
+#              |_|                         |_|                           #
+
+
+
+
+#
+#
+#   Aviso: as configurações com mais de uma linha não podem ser aletaradas para de uma linha só! o mesmo serve para os de uma linha. abaixo está explicado
+#
+#   Exemplo:            =>          Exemplo: "Oi"
+#       - "Oi"
+#
+#   Exemplo: "Olá."     =>          Exemplo:
+#                                       - "Olá."
+#
+#   Caso venha a fazer isso, será colocado uma linha em branco onde era para aparecer a msg.
+#
+
+
+
+# [Prefix]
+prefix: "&6[&eSuper&3Suporte&6]"
+prefix-allow: true
+# Mensagens
+
+messages:
+  duvida:
+    # Mensagem para quem mandou a d�vida
+    player:
+      message: # <player> <duvida>
+        - "&7Sua duvida foi enviada com sucesso! aguarde um membro de nossa equipe responder."
+        - "&7Sua duvida:&a <duvida>"
+
+    # Mensagem para quem recebeu a d�vida
+    staff:
+      message: # <player> <duvida>
+        - "&7O player:&a <player>"
+        - "&7Enviou uma Duvida:&a <duvida>"
+        - " "
+        - "&cdigite /responder <player> (resposta)"
+        - " "
+
+    # Mensagem de erro, (duvida em branco)
+    no_args:
+      - "&7Digite /duvida (sua duvida)"
+      - "&7Exemplo:&a /duvida qual ip do servidor?"
+
+    # Caso a pessoa ja tenha uma duvida pendente
+    exist:
+      - "&c&lVocê ja mandou uma dúvida, aguarde uma resposta!"
+
+  # Mensagens do Evento de Resposta
+  responder:
+    # Mensagem para quem mandou a d�vida
+    player:
+      message: "&e<staff> &aRepondeu sua dúvida: &6<resposta>" # <duvida> <resposta> <staff>
+
+    # Mensagem de resposta para todos os players menos staff
+    players:
+      # Quando passa o mouse em cima da msg
+      mousehover: # <player> <duvida> <resposta> <staff>
+        allow: true
+        text: "&c/duvida (duvida)"
+
+      resp-message:
+        message: 
+            - "&e<staff>&a respondeu a dúvida de &b<player>!" # <staff> <player> <duvida> <resposta>
+        show: true # Para Jogadores
+
+    # Mensagem de resposta para todos os com a permissão supersuporte.staff
+    staffs:
+      # Quando passa o mouse em cima da msg
+      mousehover: # <player> <duvida> <resposta> <staff>
+        allow: true
+        text: "&c<duvida> &4=> &6<resposta>"
+
+      resp-message:
+        message: 
+            - "&e<staff>&a respondeu a dúvida de &b<player>!" # <staff> <player> <duvida> <resposta>
+        show: true # Para Staff
+
+    # Mensagem de erro, (duvida em branco)
+    no_args:
+      - "&7Digite /responder (player) (resposta)"
+      - "&7Exemplo:&a /responder Joaozinho O ip do servidor é jogar.example.com"
+
+    offline: "§eEste jogador precisa estar online para você poder responder."
+
+  # Mensagens do menu de duvidas
+  duvidas:
+    empty: "&cSem dúvidas." # Caso não tenha nenhuma dúvida pendente
+    menu-name: "&b>> Duvidas Pendentes <<" # Nome do menú
+    head:
+      description: # <player> <duvida> <criado>
+        - " "
+        - "&7Jogador: &a<player>"
+        - "&7Dúvida: &a<duvida>"
+        - "&7<criado>"
+        - " "
+        - "&cClique para Remover"
+        
+  # Mensagens do Evento de Duvida
+  duvida-pendente:
+    allow: true
+    player:
+      message: "&7Você tem uma duvida pendente, Aguarde uma resposta."  # <player>
+    staff:
+      message: "&7O jogador &3<player>&7 contém uma dúvida pendente, Digite &c/duvidas&7 e verifique"  # <player>
